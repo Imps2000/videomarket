@@ -34,3 +34,6 @@ Thumbs.db
 
 # 기타
 *.bak
+
+# Claude Code
+.claude/
