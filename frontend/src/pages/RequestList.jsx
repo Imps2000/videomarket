@@ -31,8 +31,14 @@ function RequestList() {
       <h1>의뢰 목록</h1>
       <div className="requests-grid">
         {requests.map((request) => (
-          <div key={request.id} className="request-card">
-            <h3>{request.title}</h3>
+          <div 
+            key={request.id} 
+            className={`request-card ${request.is_mine ? 'my-request' : ''}`}
+          >
+            <h3>
+              {request.title}
+              {request.is_mine && <span className="badge-mine">내 의뢰</span>}
+            </h3>
             <p>{request.concept}</p>
             <div className="request-info">
               <span>스타일: {request.style}</span>
@@ -40,7 +46,10 @@ function RequestList() {
               <span className="reward">💰 {request.reward} 코인</span>
             </div>
             <div className="request-meta">
-              <span>의뢰자: {request.requester.username}</span>
+              <span>
+                의뢰자: {request.requester.username}
+                {request.is_anonymous && <span className="badge-anonymous"> 익명</span>}
+              </span>
               <span className={`status ${request.status}`}>
                 {request.status === 'open' ? '대기중' : 
                  request.status === 'in_progress' ? '진행중' : '완료'}

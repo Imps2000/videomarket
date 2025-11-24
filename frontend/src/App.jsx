@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import RequestList from './pages/RequestList';
 import Login from './pages/Login';
+import CreateRequest from './pages/CreateRequest';
 import './App.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
           <h1>VideoMarket</h1>
           <div className="nav-links">
             <a href="/">의뢰 목록</a>
+            <a href="/create">의뢰 등록</a>
             <a href="/login">로그인</a>
           </div>
         </nav>
@@ -23,6 +25,7 @@ function App() {
               <RequestList />
             </main>
           } />
+          <Route path="/create" element={<CreateRequest />} /> 
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>
