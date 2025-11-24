@@ -19,10 +19,11 @@ class SubmissionSerializer(serializers.ModelSerializer):
             'thumbnail',
             'description',
             'is_paid',
+            'show_in_portfolio',  # 추가!
             'submitted_at',
             'updated_at',
         ]
-        read_only_fields = ['id', 'creator', 'is_paid', 'preview_video', 'submitted_at', 'updated_at']
+        read_only_fields = ['id', 'creator', 'is_paid', 'preview_video', 'thumbnail', 'submitted_at', 'updated_at']
 
 
 class SubmissionCreateSerializer(serializers.ModelSerializer):
@@ -33,14 +34,14 @@ class SubmissionCreateSerializer(serializers.ModelSerializer):
         fields = [
             'request',
             'original_video',
-            'thumbnail',
             'description',
+            'show_in_portfolio',  # 추가!
         ]
     
     def validate_request(self, value):
-        """의뢰 상태 검증"""
-        if value.status != 'open':
-            raise serializers.ValidationError("이미 진행중이거나 완료된 의뢰입니다.")
+        """의뢰 상태 검증 - open OR in_progress 가능"""
+        if value.status not in ['open', 'in_progress']:  # 수정!
+            raise serializers.ValidationError("완료된 의뢰에는 제출할 수 없습니다.")
         return value
     
     def validate(self, data):
@@ -63,9 +64,10 @@ class SubmissionCreateSerializer(serializers.ModelSerializer):
         validated_data['creator'] = self.context['request'].user
         submission = super().create(validated_data)
         
-        # 의뢰 상태를 '진행중'으로 변경
-        submission.request.status = 'in_progress'
-        submission.request.save()
+        # 의뢰 상태를 '진행중'으로 변경 (open일 경우에만)
+        if submission.request.status == 'open':
+            submission.request.status = 'in_progress'
+            submission.request.save()
         
         return submission
 
@@ -84,5 +86,6 @@ class SubmissionListSerializer(serializers.ModelSerializer):
             'creator_username',
             'thumbnail',
             'is_paid',
+            'show_in_portfolio',
             'submitted_at',
         ]

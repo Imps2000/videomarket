@@ -316,3 +316,399 @@
   margin-left: 0.5rem;
   font-weight: 600;
 }
+/* 의뢰 상세 페이지 */
+.request-detail-page {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.request-detail-container {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.btn-back {
+  background: #f3f4f6;
+  color: #374151;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.btn-back:hover {
+  background: #e5e7eb;
+}
+
+.request-detail-header {
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.request-detail-header h1 {
+  font-size: 2rem;
+  color: #111827;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.request-detail-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.request-detail-body {
+  margin-bottom: 2rem;
+}
+
+.detail-section {
+  margin-bottom: 1.5rem;
+}
+
+.detail-section h3 {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.detail-section p {
+  font-size: 1rem;
+  color: #111827;
+  line-height: 1.6;
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* 제출물 섹션 */
+.submissions-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e5e7eb;
+}
+
+.submissions-section h2 {
+  margin-bottom: 1.5rem;
+  color: #111827;
+}
+
+.submissions-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.submission-card {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.submission-thumbnail {
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.submission-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.submission-creator {
+  font-weight: 600;
+  color: #374151;
+}
+
+.submission-desc {
+  color: #6b7280;
+  flex: 1;
+}
+
+.submission-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.btn-preview {
+  padding: 0.5rem 1rem;
+  background: #6b7280;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-preview:hover {
+  background: #4b5563;
+}
+
+.btn-purchase {
+  padding: 0.5rem 1rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-purchase:hover {
+  background: #059669;
+}
+
+.badge-paid {
+  background: #10b981;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* 제출 버튼 섹션 */
+.submit-section {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 2rem;
+  background: #eff6ff;
+  border-radius: 8px;
+  border: 2px dashed #3b82f6;
+}
+
+.btn-submit-work {
+  padding: 1rem 2rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-submit-work:hover {
+  background: #2563eb;
+}
+
+/* RequestList 카드 클릭 가능 표시 */
+.request-card {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.request-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+/* 제출물 업로드 페이지 */
+.submit-work-page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.submit-work-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.submit-work-container h1 {
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.submit-form {
+  margin-top: 1.5rem;
+}
+
+/* 파일 업로드 */
+.file-upload-area {
+  margin-top: 0.5rem;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-label {
+  display: block;
+  padding: 2rem;
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.file-label:hover {
+  border-color: #3b82f6;
+  background: #f9fafb;
+}
+
+.file-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+}
+
+.upload-icon {
+  font-size: 3rem;
+}
+
+.file-hint {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.file-selected {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #059669;
+}
+
+.file-icon {
+  font-size: 3rem;
+}
+
+.file-name {
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.file-size {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* 업로드 중 안내 */
+.upload-notice {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.upload-notice p {
+  margin: 0.5rem 0;
+  color: #92400e;
+}
+
+.upload-notice p:first-child {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* 비활성화된 버튼 */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* 비디오 모달 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 1.25rem;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0.5rem;
+  line-height: 1;
+  border-radius: 4px;
+}
+
+.modal-close:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.video-player {
+  width: 100%;
+  max-height: 500px;
+  background: #000;
+  border-radius: 8px;
+}
+
+.modal-footer {
+  padding: 1rem 1.5rem;
+  background: #fef3c7;
+  border-top: 1px solid #fbbf24;
+  border-radius: 0 0 12px 12px;
+}
+
+.watermark-notice {
+  margin: 0;
+  color: #92400e;
+  font-size: 0.9rem;
+  text-align: center;
+}

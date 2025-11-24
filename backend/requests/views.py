@@ -13,27 +13,25 @@ class RequestListCreateView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        """의뢰 목록 조회 (본인 제외, 글로벌 or 나를 타겟으로 한 의뢰만)"""
-        requests = Request.objects.filter(
-            status='open'
-        ).exclude(
-            requester=request.user
-        ).filter(
-            Q(request_type='global') | Q(target_user=request.user)
-        )
-        serializer = RequestSerializer(requests, many=True)
+        """의뢰 목록 조회 (모든 open 의뢰)"""
+        requests_list = Request.objects.filter(
+            Q(status__in=['open', 'in_progress']) &
+            (Q(request_type='global') | Q(target_user=request.user) | Q(requester=request.user))
+        ).order_by('-created_at')
+        
+        serializer = RequestSerializer(requests_list, many=True, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
         """의뢰 생성"""
-        serializer = RequestCreateSerializer(data=request.data)
+        serializer = RequestCreateSerializer(
+            data=request.data,
+            context={'request': request}
+        )
         if serializer.is_valid():
-            # requester는 자동으로 현재 사용자로 설정
-            request_obj = serializer.save(requester=request.user)
-            response_serializer = RequestSerializer(request_obj)
-            return Response(response_serializer.data, status=status.HTTP_201_CREATED)
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 class RequestDetailView(APIView):
     """의뢰 상세 조회, 수정, 삭제"""
@@ -42,7 +40,7 @@ class RequestDetailView(APIView):
     def get(self, request, pk):
         """의뢰 상세 조회"""
         request_obj = get_object_or_404(Request, pk=pk)
-        serializer = RequestSerializer(request_obj)
+        serializer = RequestSerializer(request_obj, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def put(self, request, pk):

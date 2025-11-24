@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { requestsAPI } from '../services/requests';
 
 function RequestList() {
+  const navigate = useNavigate();
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -34,6 +36,7 @@ function RequestList() {
           <div 
             key={request.id} 
             className={`request-card ${request.is_mine ? 'my-request' : ''}`}
+            onClick={() => navigate(`/request/${request.id}`)}
           >
             <h3>
               {request.title}

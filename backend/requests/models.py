@@ -49,7 +49,10 @@ class Request(models.Model):
         help_text="특정 사용자 지정 (선택)"
     )
     reward = models.IntegerField(help_text="보상 재화")
-    
+    is_anonymous = models.BooleanField(
+        default=False,
+        help_text="익명 의뢰 여부"
+    )
     # 상태
     status = models.CharField(
         max_length=20,

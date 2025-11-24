@@ -45,6 +45,11 @@ class Submission(models.Model):
     # 결제 상태
     is_paid = models.BooleanField(default=False, help_text="결제 완료 여부")
     
+    show_in_portfolio = models.BooleanField(
+        default=True,
+        help_text="완료된 의뢰에서 내 작품을 포트폴리오로 공개"
+    )
+
     # 타임스탬프
     submitted_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

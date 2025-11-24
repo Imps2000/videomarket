@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import RequestList from './pages/RequestList';
 import Login from './pages/Login';
 import CreateRequest from './pages/CreateRequest';
+import RequestDetail from './pages/RequestDetail'; 
+import SubmitWork from './pages/SubmitWork';
 import './App.css';
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
             </main>
           } />
           <Route path="/create" element={<CreateRequest />} /> 
+          <Route path="/request/:id" element={<RequestDetail />} />  
+          <Route path="/submit/:requestId" element={<SubmitWork />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>
