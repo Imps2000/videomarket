@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'requests.apps.RequestsConfig',
     'submissions',
     'reviews',
+    'transactions',
 ]
 
 MIDDLEWARE = [

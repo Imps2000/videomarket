@@ -23,6 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/users/', include('users.urls')),
     path('api/requests/', include('requests.urls')),
+    path('api/submissions/', include('submissions.urls')),
+    path('api/reviews/', include('reviews.urls')),
+    path('api/transactions/', include('transactions.urls')),
 ]
 
 # 개발 환경에서 media 파일 서빙
